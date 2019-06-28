@@ -1,5 +1,6 @@
 import {GET_ARTICLES} from '../actions/types'
 import realm from '../models/realm'
+import Api from '../services/api'
 
 export function getArticles(){
     return dispatch => {
@@ -20,7 +21,6 @@ export function getArticles(){
                         news => {
                             console.log(news)
                             realm.add('article', news.articles)
-                            this.setState({ articles: news.articles })
                             dispatch({
                                 type: GET_ARTICLES,
                                 payload: news.articles

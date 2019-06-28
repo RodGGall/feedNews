@@ -1,15 +1,17 @@
 import React from 'react'
-import {ImageBackground, Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native'
+import { ImageBackground, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 
-const Article = ({item}) => (
-    <TouchableOpacity style={styles.card}>
-        <ImageBackground style={styles.image} source={{ uri: item.urlToImage}}>
-        <Text style={styles.title}>{item.title}</Text>
-        </ImageBackground>
-    </TouchableOpacity>
-)
-var {height, width} = Dimensions.get('window');
-export default Article
+export default function (props) {
+    const { item, pushIn } = props
+    return (
+        <TouchableOpacity style={styles.card} onPress={pushIn}>
+            <ImageBackground style={styles.image} source={{ uri: item.urlToImage }}>
+                <Text style={styles.title}>{item.title}</Text>
+            </ImageBackground>
+        </TouchableOpacity>
+    )
+}
+var { height, width } = Dimensions.get('window');
 
 const styles = StyleSheet.create(
     {
@@ -23,10 +25,10 @@ const styles = StyleSheet.create(
             marginBottom: 5,
             backgroundColor: '#828282',
         },
-        title:{
+        title: {
             padding: 10,
             fontSize: 20,
-            fontWeight:'bold',
+            fontWeight: 'bold',
             color: '#e5e5e5',
             textAlign: 'justify',
             textShadowColor: '#000',
@@ -38,7 +40,7 @@ const styles = StyleSheet.create(
             justifyContent: 'flex-end',
             borderRadius: 15,
             width: width,
-            height: height/4,
+            height: height / 4,
             resizeMode: 'cover',
             opacity: .80,
         }

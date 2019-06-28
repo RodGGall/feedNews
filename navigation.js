@@ -3,6 +3,7 @@ import Feed from './screens/feed'
 import App from './App'
 import country from './screens/country'
 import Category from './screens/category'
+import article from './screens/Article'
 
 const AppNavigator = createStackNavigator({
   PantallaPrincipal: {
@@ -10,6 +11,9 @@ const AppNavigator = createStackNavigator({
   },
   Category: {
     screen: Category,
+  },
+  Article: {
+    screen: article,
   }
 }, {
     initialRouteName: 'PantallaPrincipal',
